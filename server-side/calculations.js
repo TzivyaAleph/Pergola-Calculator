@@ -28,9 +28,18 @@ function numOfBeam(width, thickness) {
     }
     return x + 1;
 }
-
+/**
+ * 
+ * @param {*} length 
+ * @param {*} wallBeam 
+ * @param {*} output 
+ * @returns 
+ */
 // קורת קיר מורידה 5 ס"מ
 function lengthOfWood(length, wallBeam, output) {
+    length = parseFloat(length);
+    output = parseFloat(output);
+    wallBeam = parseFloat(wallBeam);
     return (length + output) - wallBeam;
 }
 
