@@ -39,7 +39,6 @@ function numOfBeam(width, thickness) {
 function lengthOfWood(length, wallBeam, output) {
     length = parseFloat(length);
     output = parseFloat(output);
-    wallBeam = parseFloat(wallBeam);
     return (length + output) - wallBeam;
 }
 
