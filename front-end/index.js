@@ -9,8 +9,9 @@ function regularCalculator() {
 
     //שיהיה אפשרות להוריד בכלל קורת קיר- אופציה אם אתה רוצה או לא
     //קורה תומכת- ברירת מחדל כמו כל הקרשים והאופציה לשנות גם עובי וגם גובה
-    const wallBeam = document.getElementById('numberInput').value;
-    if (wallBeam == null) {wallBeam = 5;}
+    let wallBeam = document.getElementById('showNumberInput').value;
+    if (showNumberInput.checked == false) {wallBeam = 0;}
+    else{wallBeam = 5;}
 
     let variables = [length,width,height,incline,output,thickness,beamHight,wallBeam];
 
