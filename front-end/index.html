@@ -19,9 +19,10 @@
     
     <label for="showNumberInput">Cancel wall beam</label>
     <input type="checkbox" id="showNumberInput" name="showNumberInput" >
-    <label for="showNumberInput">Change support beam</label>
+    <label for="supportBeam">Change support beam</label>
     <input type="checkbox" id="supportBeam" name="supportBeam" >
-    <!-- <input type="number" id="numberInput" placeholder="Enter the wall beam" name="numberInput" min="0" > -->
+    <input type="number" style="display: none" id="hightSupportBeam" placeholder="Enter the hight for the support beam" name="hightSupportBeam" min="0" >
+    <input type="number" style="display: none" id="thicknessSupportBeam" placeholder="Enter the thickness of the support beam" name="thicknessSupportBeam" min="0" >
 
     <button onclick="regularCalculator()">Calculate</button>
     <p id="result"></p>

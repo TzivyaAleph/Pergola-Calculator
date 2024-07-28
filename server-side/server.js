@@ -14,13 +14,13 @@ app.use(bodyParser.json());
 
 // Endpoint to handle POST requests
 app.post('/calculate', (req, res) => {
-    //the list of all user inputs: let variables = [length,width,height,incline,output,thickness,beamHight,wallBeam];
+    //the list of all user inputs: let variables = [length,width,height,incline,output,thickness,beamHight,wallBeam,hightSupportBeam.value,thicknessSupportBeam.value];
     const variables = req.body.variables;
     //calculates num of space between beam and puts it in space variable.
     let space = c.numOfSpaceBetweenBeam(variables[1], variables[5]);
     let beams = c.numOfBeam(variables[1],variables[5]);
     let lengthOfWood = c.lengthOfWood(variables[0],variables[7],variables[4]);
-    let poleHeight= c.heightOfPole(variables[2],variables[3],variables[6],variables[7]);
+    let poleHeight= c.heightOfPole(variables[2],variables[3],variables[6],variables[8]);
     let spaceBetweenPoles = c.numOfSpaceBetweenPole(variables[1],variables[6]);
     let poles = c.numOfPoles(variables[1],variables[5]);
     const result = [space,beams,lengthOfWood,poleHeight,spaceBetweenPoles,poles];

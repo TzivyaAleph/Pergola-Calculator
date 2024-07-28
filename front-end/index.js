@@ -9,11 +9,34 @@ function regularCalculator() {
 
     //שיהיה אפשרות להוריד בכלל קורת קיר- אופציה אם אתה רוצה או לא
     //קורה תומכת- ברירת מחדל כמו כל הקרשים והאופציה לשנות גם עובי וגם גובה
-    let wallBeam = document.getElementById('showNumberInput').value;
-    if (showNumberInput.checked == false) {wallBeam = 0;}
-    else{wallBeam = 5;}
+    let wallBeam = document.getElementById('showNumberInput');
+    let wallBeamVal= 0;
 
-    let variables = [length,width,height,incline,output,thickness,beamHight,wallBeam];
+    wallBeam.addEventListener('change', function() {
+            if (wallBeam.checked) {
+                wallBeamVal = 5;
+            } else {
+                wallBeamVal = 0; // Add this line if you want to reset wallBeamVal when unchecked
+            }
+            console.log('wallBeamVal:', wallBeamVal); // For debugging purposes
+        });
+
+    let supportBeamCheckBox = document.getElementById('supportBeam');
+    const hightSupportBeam = document.getElementById('hightSupportBeam');
+    const thicknessSupportBeam = document.getElementById('thicknessSupportBeam');
+
+    supportBeam.addEventListener('change', function() {
+        if (supportBeamCheckBox.checked == true) 
+            {hightSupportBeam.style.display="block"; 
+            thicknessSupportBeam.style.display="block"; }
+        else{hightSupportBeam.style.display="none"; 
+            thicknessSupportBeam.style.display="none";
+            hightSupportBeam.value = beamHight;
+            thicknessSupportBeam.value = thickness;
+        } 
+    });
+    console.log('wallBeamVal:', wallBeamVal); // For debugging purposes
+    let variables = [length,width,height,incline,output,thickness,beamHight,wallBeamVal,hightSupportBeam.value,thicknessSupportBeam.value];
 
     // the url is the address to where i want to send the http request
     fetch('http://127.0.0.1:3000/calculate', {
@@ -33,15 +56,3 @@ function regularCalculator() {
         console.error('Error:', error);
     });
 }
-
-
-// script for the check box.
-
-document.getElementById('showNumberInput').addEventListener('change', function() {
-    const numberInputContainer = document.getElementById('numberInput');
-    if (this.checked) {
-        numberInputContainer.style.display = 'block';
-    } else {
-        numberInputContainer.style.display = 'none';
-    }
-});

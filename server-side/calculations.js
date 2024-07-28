@@ -44,8 +44,8 @@ function lengthOfWood(length, wallBeam, output) {
 
 //יש קורה תומכת(כמו שאר הקורות זה קורה ליד העמודים) ויש קורה קיר- קורת קיר באותו גובה של קורה רגילה והעובי ברירת מחדל 5 סמ
 //גובה הקרש תמיד גדול מעובי הקרש, יש להשתמש בגובה הקרש ולא עובי הקרש, ולהפחית את הקורה התומכת
-function heightOfPole(height, incline, beamHight, wallBeam) {
-    return height - beamHight - incline -beamHight;
+function heightOfPole(height, incline, beamHight, hightSupportBeam) {
+    return height - beamHight - incline -hightSupportBeam;
 }
 
 
